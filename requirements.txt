@@ -1,9 +1,11 @@
-pip>=25.2
-tensorflow
+streamlit==1.32.2
+tensorflow==2.13.0
 numpy
 pandas
-streamlit
 Pillow
-glob
+matplotlib
+seaborn
+
+
 
 
