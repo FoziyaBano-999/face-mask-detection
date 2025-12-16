@@ -5,7 +5,7 @@ from PIL import Image
 from tensorflow.keras.models import load_model
 
 # Best weights load karna
-best_model1 = load_model("best_model_new.h5")
+best_model1 = load_model("best_model1.h5")
 
 
 # --- CUSTOM CSS ---
@@ -58,4 +58,5 @@ if st.button("Predict"):
         else:
             st.success("Without Mask")
     else:
+
         st.warning("Please upload an image first!")
