@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 from PIL import Image
+import tensorflow as tf
 from tensorflow.keras.models import load_model
 
 # Best weights load karna
@@ -45,13 +46,13 @@ if file_upload is not None:
     img = Image.open(file_upload)
     st.image(img , use_container_width=True)
 
-def process_img(img):
-    img = Image.open(file_upload)
+def process_img(file):
+    img = Image.open(file).convert("RGB")
     img = img.resize((224,224))
     img = np.array(img) / 225.0
     img = np.expand_dims(img , axis=0)
     return img
-
+    
 if st.button("Predict"):
     if file_upload is not None:
         image = process_img(file_upload)
@@ -63,5 +64,6 @@ if st.button("Predict"):
     else:
 
         st.warning("Please upload an image first!")
+
 
 
