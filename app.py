@@ -60,3 +60,4 @@ if st.button("Predict"):
     else:
 
         st.warning("Please upload an image first!")
+
