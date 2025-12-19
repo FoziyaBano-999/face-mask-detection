@@ -1,5 +1,4 @@
 import streamlit as st
-import pandas as pd
 import numpy as np
 from PIL import Image
 import tensorflow as tf
@@ -55,15 +54,23 @@ def process_img(file):
     
 if st.button("Predict"):
     if file_upload is not None:
-        image = process_img(file_upload)
+        # image = process_img(file_upload)
+        # pred = best_model1.predict(image)
+        # if pred[0][0] > 0.5:
+        #     st.success("With Mask")
+        # else:
+        #     st.success("Without Mask")
         pred = best_model1.predict(image)
-        if pred[0][0] > 0.5:
+        class_id = np.argmax(pred)
+
+        if class_id == 0:
             st.success("With Mask")
         else:
             st.success("Without Mask")
     else:
 
         st.warning("Please upload an image first!")
+
 
 
 
